@@ -27,7 +27,7 @@
     <a href="graphics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Graphics</a>
     <a href="music.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Music</a>
     <a href="resume.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resume</a>
-    <a href="links.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Links</a>
+    <a href="links.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Links</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -43,16 +43,34 @@
 </div>
 <!-- Header -->
 <header class="w3-container w3-blue-grey w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Links</h1>
-  <p class="w3-xlarge"><a href="https://www.linkedin.com/in/jared-petersen-99012421/">Linkedin Profile</a><img src="https://static-exp1.licdn.com/sc/h/akt4ae504epesldzj74dzred8" width="30" height="30" hspace="10"></p>
-  <p class="w3-xlarge"><img src="images/links/coremods.png" width="25" height="26" hspace="10"><a href="https://www.etsy.com/shop/CoreMods/">Core Mods</a> (See <a href="products.html">Products</a>)</p>
-  <p class="w3-xlarge"><a href="mailto:CoreCubeMods@gmail.com">Steady State</a> (See <a href="music.html">Music</a>)<i class="fa fa-music w3-text-blue w3-margin-left"></i></p>
-  <p class="w3-xlarge"><i class="fa fa-envelope w3-text-white w3-margin-right"></i><a href="mailto:CoreCubeMods@gmail.com">Contact Me</a></p>
+  <h1 class="w3-margin w3-jumbo">404</h1>
+  <p class="w3-xlarge">Page not found.</p>
 </header>
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
     <script>
+	
+	$(document).ready(function() {
+	$('.popup-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		alignTop: true,
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+			titleSrc: function(item) {
+				return item.el.attr('title') + '<small>by Jared Petersen</small>';
+			}
+		}
+	});
+});
 	
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() 
