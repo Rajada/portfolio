@@ -69,8 +69,8 @@
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
     <script>
 	
-	$(document).ready(function() {
-	$('.popup-gallery').magnificPopup({
+	$(".popup-gallery").each(function() {
+    $(this).magnificPopup({
 		delegate: 'a',
 		type: 'image',
 		tLoading: 'Loading image #%curr%...',

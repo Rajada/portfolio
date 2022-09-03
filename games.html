@@ -48,20 +48,16 @@
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
       <h1>Nerf ArenaBlast Level Design</h1>
-      <h5 class="w3-padding-32">Nerf ArenaBlast is a highly modifiable 1999 Unreal Engine first person arena shooter. I've worked extensively on upgrading and upkeeping the game ever since it became abandonware. In this section, you'll see some of my work in level design and get a look at some of the nuanced game theory that goes into designing an enjoyable arena.</h5>
+      <h5 class="w3-padding-32">Nerf ArenaBlast is a highly modifiable 1999 Unreal Engine first person arena shooter. I've worked extensively on upgrading and upkeeping the game ever since it became abandonware. In this section, you'll see some of my work in level design and get a look at some of the nuanced  theories that go into designing an artistically inspired arena.</h5>
       <div class="popup-gallery">
-	<a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
-    <a href="images/games/levels/.png" title="Test"><img src="images/games/levels/.png" width="150" height="150"></a>
+	<a href="images/games/levels/shot1.png" title="My maps span a huge range of themes. Only once did I experiment with a total lack of lighting. The walls and obstacles of this arena had to be defined entirely with only contrasts."><img src="images/games/levels/shot1.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot2.png" title="On the other end of the spectrum is an arena will very few walls. "><img src="images/games/levels/shot2.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot3.png" title="One of my favorite parts of designing a space is creating an interesting backdrop. In this area one can see a number of unreachable details including a wrecking-ball in the middle of knocking down a wall. These kinds of details pleasingly cover the transition between the arena and the unreachable skybox."><img src="images/games/levels/shot3.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot4.png" title="Creating convincing decay is a challenge in this old of an engine. With a little patience and careful arrangement of a scene, one can pull it off. And when you do, it can add a very nice atmospheric touch."><img src="images/games/levels/shot4.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot5.png" title="I like my levels to tell a little story. In this map I imagined how a place like this might come to be discovered. Perhaps someone exploring a cave fell through this weakened floor. Details like this unreachable exit make an arena feel more like part of a tangible world."><img src="images/games/levels/shot5.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot6.png" title="Even within an extremely old game, dramatic lighting can make for a really interesting focal point."><img src="images/games/levels/shot6.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot7.png" title="I like to take something mundane and mix it with something fantastic. While the underdeveloped rough draft for this map came from another mapper, when I updated it visually I decided to lean into the floating aspect of the main structure. Players can now attribute the aerial status of this bridge to a supervillain's gravity beam gone wrong."><img src="images/games/levels/shot7.png" width="225" height="150"></a>
+    <a href="images/games/levels/shot8.png" title="I like to mix some of the disperate default and community-created textures to make new atmospheres in maps. Here I've taken the fantastic tropical default texture pack and mixed it with some more industrial touches to make an interesting underwater exhibit."><img src="images/games/levels/shot8.png" width="225" height="150"></a>
 </div>
       <p class="w3-text-grey">Click an image to open the gallery.</p>
     </div>
@@ -92,8 +88,8 @@
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
     <script>
 	
-	$(document).ready(function() {
-	$('.popup-gallery').magnificPopup({
+	$(".popup-gallery").each(function() {
+    $(this).magnificPopup({
 		delegate: 'a',
 		type: 'image',
 		tLoading: 'Loading image #%curr%...',
