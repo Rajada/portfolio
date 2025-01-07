@@ -200,6 +200,12 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 	color:#000!important;
 	background-color:#000!important;
 }
+.w3-bgcode
+{
+	background-repeat: repeat;
+	background-image: url(../images/backgrounds/CodeBG.png);
+	background-attachment: fixed;
+}
 .w3-bgproducts
 {
 	background-repeat: no-repeat;
@@ -229,6 +235,17 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 	background-repeat: repeat;
 	background-image: url(../images/backgrounds/FOFBG.png);
 	background-attachment: fixed;
+}
+.w3-bgresume
+{
+	background-repeat: repeat;
+	background-image: url(../images/backgrounds/ResumeBG.png);
+	background-attachment: fixed;
+}
+.w3-bgnone
+{
+	background-image: none;
+	background-color: none;
 }
 .w3-dark-grey,.w3-hover-dark-grey:hover,.w3-dark-gray,.w3-hover-dark-gray:hover{color:#fff!important;background-color:#616161!important}
 .w3-pale-red,.w3-hover-pale-red:hover{color:#000!important;background-color:#ffdddd!important}
