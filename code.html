@@ -49,8 +49,113 @@
   <p class="w3-xlarge">Here you will find not just code snippets, but also brief stories about the code I've worked on. Looking for my <a href="https://github.com/Rajada" target="_blank">github repos</a>?</p>
 </header>
 
-    <div id="legacy" class="w3-row-padding w3-light-grey w3-padding-64 w3-container w3-bgcode">
-  <div class="w3-content" style="border-style: outset; border-width: thick; border-color: #FFF">
+<div id="codestories" class="w3-row-padding w3-padding-64 w3-container w3-bgcode">
+  <div class="w3-content">
+  	<h1>Delving into Design</h1>
+    <h5 class="w3-padding-32">Short stories about video game design dillemas and code problems I solved plus the lessons I learned from them.</h5>
+    <hr>
+
+  <div style="height: 600px; overflow:scroll">
+  	<div id="article01" style=" display: block; position: relative; top: -60px; visibility: hidden;">
+    </div>
+    <div>
+    	<h2 class="w3-center">Condition Effects</h2>
+    	<h3>The Problem</h2>
+    	<h5>
+        	A number of power-ups and environmental factors acted upon numerous player physics variables creating math errors and race conditions when combined.	
+    	</h5>
+        <h3>How I solved it</h2>
+        <h5>
+        	My solution was to divert the math to a linked list of special effect holders that are attached to the player. Each special effect has individualized effects that are summated each time an effect is added or removed. Numerous physics variables can be handled, as well as elemental and damage-over-time effects and more as-of-yet unimplemented uses. 
+    </h5>
+        <h3>What I learned</h2>
+        <h5>
+        	While fixing the bug was the instigating event, re-factoring how the game handled these effects allowed me to extend the system to improve other existing and future aspects. From slowing to burn damage to freezing players in an ice block, all these effects and more are trivial to implement (even for modders).
+      </h5>
+      </div>
+      
+      <div id="article02" style=" display: block; position: relative; top: -70px; visibility: hidden;">
+    </div>
+    <div>
+    	<h2 class="w3-center">Ball-istics</h2>
+    	<h3>The Problem</h2>
+    	<h5>
+        	A ball-scoring gamemode suffered from problematic hard-coding in multiple areas and a lack of modding variety.
+    </h5>
+        <h3>How I solved it</h2>
+        <h5>
+        	This gamemode's code was in need of a refactor to eliminate a number of hard-coded code-duplicated limits and variables. While I refactored, it became apparent that the new variables allowed for untapped modding potential. By connecting several of the gamemode's events to special handler functions, I was able to run the code through the mutator chain (a special linked list for modifying game rules) and create a UI for expanding the selection of ball types usable in this rugby-like mode. Now devs and modders alike can make their own balls that fly faster, bounce harder, cloak, explode, teleport, converse, and even seek.
+    </h5>
+        <h3>What I learned</h2>
+        <h5>
+        	You don't have to make huge changes to durastically affect how a game is played. Allowing players to optionally turn a few dials can completely change a game for the better. Now, any time I see arbitrary hard-coded limits I ask myself: Could players have more fun if this thing could be tweaked a little?
+      </h5>
+      </div>
+      
+      <div id="article03" style=" display: block; position: relative; top: -70px; visibility: hidden;">
+    </div>
+    <div>
+    	<h2 class="w3-center">Sound Ideas</h2>
+    	<h3>The Problem</h2>
+    	<h5>
+        	Over a dozen in-game interactions were either lacking unique sounds or missing sounds altogether creating a strange lack of immersion. 
+    </h5>
+        <h3>How I solved it</h2>
+        <h5>
+        	One thing studying game design doesn't prepare you for is the joy of being a foley artist.When I was tasked with filling in various missing in-game sounds I needed to replicate everything from various footsteps the sounds of elements to the spring-powered "ka-chunk" of weaponry. I quickly realized a number of household objects could provide pieces of the sound profiles I wanted, then edited them together to create punchy and satifying sounds to fill in those silent interactions. When it came to existing sounds that were used for multiple purposes, the negative effects were clear once they had been updated. You may wonder, for instance, why it's a big deal to have differing sounds for swimming through various fluids like water, lava, slime, and more. Why not just use a universal swimming sound? Immersion stems from a game's ability to communicate with the player, and there's no better way to communicate you've entered a fluid than through the sounds you make as you wade through it. In an instant you get a feel for how dangerously viscous it is; just knowing this isn't your normal everyday water puts players in a heightened state. That sonic feedback feels good, and it becomes noticable when it is absent even from small interactions.
+    </h5>
+        <h3>What I learned</h2>
+        <h5>
+        	I've come to learn that sound is one of the most important tools for immersion, yet is often an overlooked aspect of most games. While players may not consciously notice every missing or inappropriate sound I encountered, they will take note of it on a subconscious level. Over time, your sound design will be one of the factors that either makes your game feel good, or makes it feel unsatisfying, uncanny and strange.
+      </h5>
+      </div>
+      
+      <div id="article04" style=" display: block; position: relative; top: -70px; visibility: hidden;">
+    </div>
+    <div>
+    	<h2 class="w3-center">Checks and Balances</h2>
+    	<h3>The Problem</h2>
+    	<h5>
+        	A number of weapons, powerups, and environmental factors lacked code to account for interactions, often creating bugs and bad visual communication.
+    </h5>
+        <h3>How I solved it</h2>
+        <h5>
+        	 When I first found the bug-causing interaction between the powerup that temporarily increases your running speed and the weapon that is capable of leaving behind a sticky glue-like trap, I figured the fix would be quick and simple. It was at first, but it didn't feel right. Players would be zooming about the map then stumble into the trap and freeze dead on the spot until the trap was eventually destroyed. The code had not accounted for a corner-case in this interaction, but it was more than just a bug; it was sloppy design. To rob players of all their movement with or without this powerup felt unfair and unbalanced. Not to mention, it would happen so quickly that players would become confused momentarily. My solution was to have the glue trap strip away the powerup, but not stick the player. In this way, speedy players are punished for hitting the trap but in a way that feels justified and allows them the chance to react to the situation.
+    </h5>
+    <h5>
+    There were a number of these interactions that felt unfinished and offered the opportunity to create balancing factors. 
+        <ul>
+        	<li><b>Problem:</b> Sniping weapons are disproportionately strong in certain maps.</li>
+            <p><b>Solution:</b> Add a powerup to block a single headshot in sniper-dominated maps.</p>
+            <li><b>Problem:</b> A projectile with the severe disadvantage of detonating if shot by an enemy isn't worth the risk.</li>
+            <p><b>Solution:</b> Players can now steer the projectile with a laser-pointer, allowing them to dodge enemy fire whilst simultaneously visually alerting enemies to the impending danger.</p>
+            <li><b>Problem:</b> While scoped in, sniper weapons create a lack of awareness of your teammates.</li>
+            <p><b>Solution:</b> Scope elements change to friendly colors and identify teammates when pointing at them to prevent wasted shots and create opportunities for team recon.</p>
+            <li><b>Problem:</b> A camera-guided projectile creates a total lack of situational awareness for players that fire it leaving them completely vulnerable.</li>
+            <p><b>Solution:</b> Special camera effects and alarm sounds are made when the guiding player takes damage allowing them to quickly react and possibly abort their current shot. Friendly players (including themselves) are also identified through the projectile's camera so the firing player can quickly identify enemies near them in self-defense.</p>
+            <li><b>Problem:</b> A rocket-based projectile hits too hard when landing easy ground shots on enemies, but reducing damage will punish skill-based direct hits too much.</li>
+            <p><b>Solution:</b> Damage is tweaked based on the area hit. When a rocket impacts a player in the leg area, damage is reduced and momentum imparted is increased. This not only creates new strategies for knocking enemies back when direct hits are not an option, but also creates new skill expression by letting players rocket-jump using the increased momentum with less worry of self-damage.</p>
+        </ul>
+    </h5>
+        <h3>What I learned</h2>
+        <h5>
+        	Game balance doesn't have to just be a matter of tweaking numbers. One can add a unique interaction between elements and create a totally new power dynamic that offers a new vector for balance. Sometimes it's not possible to balance a game with just numbers. These new vectors provide a way to create balance through interactions that feel clever and polished; making new strategies for players that feel justified without increasing complexity tenfold.
+      </h5>
+      </div>
+      
+    </div>
+    <div class="w3-center w3-white w3-text-grey" style="padding: 10px 10px 5px 10px">Scroll for more or select a story below to jump to it...</div>
+    <div class="w3-center w3-white" style="padding: 0px 10px 10px 10px">
+    	<button style="margin: 1px 2px 1px 2px" onclick="location.href='#article01'" type="button">Condition Effects</button>
+		<button style="margin: 1px 2px 1px 2px" onclick="location.href='#article02'" type="button">Ball-istics</button>
+        <button style="margin: 1px 2px 1px 2px" onclick="location.href='#article03'" type="button">Sound Ideas</button>
+        <button style="margin: 1px 2px 1px 2px" onclick="location.href='#article04'" type="button">Checks and Balances</button>
+    </div>
+  </div>
+</div>
+
+    <div id="legacy" class="w3-row-padding w3-blue-grey w3-padding-64 w3-container">
+  <div class="w3-content-2 w3-center">
       <h1>Nerf ArenaBlast Legacy Codebase Refactoring</h1>
       <h5 class="w3-padding-16">Nerf ArenaBlast released in October of 1999 and received very few official updates. Community members like myself have filled the void with unofficial patches and updates. Over the years I've had the opportunity to refactor a large chunk of Nerf ArenaBlast's engine code, resulting in a wealth of practical experience working with legacy code. Here you will find a succinct changelog that should convey the sheer amount of my effort that has gone into updating the codebase.</h5>
       <div class="w3-center w3-padding-8" style="width:100%; display:block">
@@ -61,12 +166,7 @@
     </div>
     
     <!-- Second Grid -->
-<!--<div id="mods" class="w3-row-padding w3-blue-grey w3-padding-64 w3-container">
-  <div class="w3-content-2">
-      <h1>Nerf ArenaBlast Modifications</h1>
-      <h5 class="w3-padding-32">From gamemodes to blasters to mutators, Nerf ArenaBlast's highly-customizable engine allows users to make a huge variety of modifications. Here I highlight a few of my own modifications and the lessons I learned from them.</h5>
-  </div>
-</div>-->
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
