@@ -239,6 +239,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 	background-repeat: repeat;
 	background-image: url(../images/backgrounds/FOFBG.png);
 	background-attachment: fixed;
+	opacity: 0.35;
 }
 .w3-bgresume
 {
@@ -257,6 +258,13 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 	background-image: url(../images/backgrounds/ResumeBG.png);
 	background-attachment: fixed;
 }
+.w3-bgcontent
+{
+	background-repeat: repeat;
+	background-image: url(../images/backgrounds/BGGrid.png);
+	background-attachment: fixed;
+}
+
 .w3-dark-grey,.w3-hover-dark-grey:hover,.w3-dark-gray,.w3-hover-dark-gray:hover{color:#fff!important;background-color:#616161!important}
 .w3-pale-red,.w3-hover-pale-red:hover{color:#000!important;background-color:#ffdddd!important}
 .w3-pale-green,.w3-hover-pale-green:hover{color:#000!important;background-color:#ddffdd!important}
